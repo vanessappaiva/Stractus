@@ -13,13 +13,13 @@ Em seguida ainda é possível fazer a análise de dados por meio do cálculo das
 Por fim, após todo esse processamento de dados, é dado a oportunidade da realização de uma tomada de decisão por meio do usuário do programa.
 
 ## REQUISITOS
-A documentação de requisistos consiste em determinar, documentar e gerenciar as necessidades dos Stakeholders (usuários do sistema) e as características/funcionalidade que o sistema deve possuir ou uma restrição que deve satisfazer, sendo seu benefício chave, a base para a definição e gerenciamento do escopo do projeto.
+A documentação de requisistos consiste em determinar, documentar e gerenciar as necessidades dos Stakeholders (usuários do sistema) e as características/funcionalidade que o sistema deve possuir ou uma restrição que deve satisfazer, sendo seu benefício chave, a base para a definição e gerenciamento do escopo do projeto. A documentação completa pode ser encontrada nos arquivos do projeto.
 
 ## PROCESSAMENTO
 O programa Stractus é uma aplicação web desenvolvida em HTML, CSS e JavaScript, com adição de frameworks como Bootstrap e Jquery, para auxilio visual do sistema. O grupo, portanto, dividiu os arquivos em HTML, CSS e JavaScript. No HTML foram definidos caixas de textos, botões, combobox, radio button, e demais tag's. O valor desses elementos foi passado para o arquivo javascript para que fosse realizado o processamento dos dados e depois retornar o resultado para o HTML. Foram criadas 16 funções no JavaScript para a abranger todas as funcionalidades do sistema, mas também foram utilizadas funções prontas do, como "Math.pow()", "Math.sqrt()", ".toFixed()" e ".split()", para auxiliar as funções criadas. Uma técnica que foi utilizada para facilitar o processamento foi a declaração de algumas variáveis globais, que ajudavam a passar variáveis de algumas funções para outras e assim fazer cálculos condicionais, ou seja, dependendo da escolha do usuário. Algumas dessas funções (que dependem da escolha do usuário) passam por um processo de validação de valores antes da realização do cálculo. Ao final do processamento, o resultado aparece no HTML, destacado para que o usuário não tenha dúvidas de sua resposta. Além de ser utilizado para o processamento do sistema, o JavaScript também contém funções dos frameworks que ajudam nas condições e validações dos valores.
 
 ## INTERFACE GRÁFICA
-Interface Gráfica é um conceito da forma de interação entre o usuário do computador e um programa por meio de uma tela ou representação gráfica, visual, com desenhos, imagens, etc. Geralmente é entendido como a “tela” de um programa
+Interface Gráfica é um conceito da forma de interação entre o usuário do computador e um programa por meio de uma tela ou representação gráfica, visual, com desenhos, imagens, etc. Geralmente é entendido como a “tela” de um programa. A documentação completa pode ser encontrada nos arquivos do projeto.
 
 #### Algumas das telas do sistema:
 
