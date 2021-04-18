@@ -22,4 +22,4 @@ Interface Gráfica é um conceito da forma de interação entre o usuário do co
 
 #### Algumas das telas do sistema:
 
-![Tela_1](/_telas/Tela_1.jpg "Tela_1")![Tela_2](/_telas/Tela_2.jpg "Tela_2")![Tela_3](/_telas/Tela_3.jpg "Tela_3")![Tela_4](/_telas/Tela_4.jpg "Tela_4")
+![Tela_1](/_telas/Tela_1.jpg "Tela_1")![Tela_5](/_telas/Tela_5.jpg "Tela_5")![Tela_2](/_telas/Tela_2.jpg "Tela_2")![Tela_3](/_telas/Tela_3.jpg "Tela_3")![Tela_4](/_telas/Tela_4.jpg "Tela_4")
