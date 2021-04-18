@@ -1,4 +1,5 @@
 <img width="400" alt="Stractus" src="/_imagens/logo.png">
+
 #### A Stractus é um projeto interdisciplinar criado por alunos de Análise e Desenvolvimento de Sistemas da Fatec Franca com o objetivo de abordar 4 matérias da grade curricular: Estatística, Engenharia de Software, Interação Humano Computador e Estrutura de Dados. O grupo foi composto por Eduardo Santos, Nicolas Vinícius, Rodrigo Balduino e Vanessa Paiva. Esse projeto foi realizado no decorrer de 2 meses, onde foram postos em prática conceitos aprendidos em sala de aula, além de proporcionar uma noção de trabalho em equipe, sendo assim essencial para a formação acadêmica.
 
 ## INTRODUÇÃO À ESTATÍSTICA
