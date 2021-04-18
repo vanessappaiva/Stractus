@@ -1,0 +1,236 @@
+body {
+      font: 400 15px Lato, sans-serif !important;
+      line-height: 1.8 !important;
+      color: #818181 !important;
+  }
+  h2 {
+	  text-align: center !important;
+      font-size: 24px !important;
+      text-transform: uppercase !important;
+      color: #303030 !important;
+      font-weight: 600 !important;
+      margin-bottom: 30px !important;
+  }
+  h4 {
+	  text-align: center !important;
+      font-size: 19px !important;
+      line-height: 1.375em !important;
+      color: #303030 !important;
+      font-weight: 400 !important;
+      margin-bottom: 30px !important;
+  }  
+  
+  #intro p, #documentation p{
+	text-align: justify !important;
+	text-indent: 30px !important;	
+  }
+  
+  #f_amostragem{
+	text-align: center !important;
+	display: block !important;
+	padding: 30px !important;
+	margin:0px !important;
+  }
+  
+  .clear{
+	clear:both !important;
+} 
+  
+  .jumbotron {
+      background-color:#008993 !important;
+      color: #fff !important;
+      padding: 100px 25px !important;
+      font-family: Montserrat, sans-serif !important;
+  }
+  
+  .jumbotron h1{
+      font-family: "script" !important;
+	  font-size: 80px !important;
+	  letter-spacing: -1px !important;
+	  font-weight: 400 !important;
+	  color: #fff !important;
+      
+  }
+  
+  .container-fluid {
+      padding: 60px 50px !important;
+  }
+  .bg-grey {
+      background-color: #f6f6f6 !important;
+  }
+  
+  .navbar {
+	  text-decoration: none !important;
+      margin-bottom: 0 !important;
+      background-color: #008993 !important;
+      z-index: 9999 !important;
+      border: 0 !important;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px !important;
+      border-radius: 0 !important;
+      font-family: Montserrat, sans-serif !important;
+  }
+  
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+	  
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #008993 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: white;
+      color: white !important;
+  }
+  
+  .tabbar-default .tabbar-toggle{
+    border-color: transparent;
+	background-color: white;
+    color: #008993 !important;
+	float: left;
+	z-index: 5;
+	position:relative;
+	margin-top : -60px;
+	
+	  
+  }
+  
+  .tabbar-toggle>li{
+	flex: 1 auto;
+	text-align: center;
+	white-space: nowrap;
+	
+  }
+  
+  #logo-name{
+	  font-family: "script" !important;
+	  font-size: 50px !important;
+	  letter-spacing: -1px !important;
+  }
+   
+  footer .glyphicon {
+      font-size: 20px !important;  
+      margin-bottom: 20px !important;
+      color: #008993 !important;
+  }
+  
+   
+  
+/* Importa a font Script_MT_Bold to the CSS */ 
+@font-face {
+    font-family: "script";
+    src: url("Script_MT_Bold.ttf") format("truetype");
+
+}
+
+/* Define o tamanho e o estilo do botão de inicio */ 
+#buttonStart{
+	background-color: #fff !important; 
+    border: none !important;
+    color: #008993 !important;
+    padding: 15px 32px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+	font-family: "script" !important;
+    font-size: 20px !important;
+	margin: 15px 0px 0px 0px !important;
+	min-width: 200px !important;
+    border-radius: 4px !important;
+}
+
+/* Define o tamanho e o estilo do botão de inicio hover */ 
+#buttonStart:hover {
+	background-color: #00C0CF !important; 
+    border: none !important;
+    color: #fff !important;
+    padding: 15px 32px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+	font-family: "script" !important;
+    font-size: 20px !important;
+	margin: 15px 0px 0px 0px !important;
+	border-radius: 4px !important;
+}
+
+/* Define o tamanho e o estilo do botão de inicio */ 
+#buttonExtra{
+	background-color: #008993 !important; 
+    border: none !important;
+    color: #fff !important;
+    padding: 15px 32px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 20px !important;
+	margin: 15px 0px 0px 0px !important;
+	min-width: 200px !important;
+    border-radius: 4px !important;
+}
+
+/* Define o tamanho e o estilo do botão de inicio hover */ 
+#buttonExtra:hover {
+	background-color: #00C0CF !important; 
+    border: none !important;
+    color: #fff !important;
+    padding: 15px 32px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 20px !important;
+	margin: 15px 0px 0px 0px !important;
+	border-radius: 4px !important;
+}
+
+.nav-tabs {
+	background-color: white !important;	
+	width: auto;
+	border-top-color:transparent !important;
+    color: white !important; 
+	font-size: 20px !important;
+	font-family: Montserrat, sans-serif !important;
+	border-radius: 8px !important;
+	border: 1px solid transparent !important;
+}
+
+
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus {
+    color: #fff !important;
+    background-color: #00C0CF !important;
+	
+}
+
+.nav-pills > li.active > a:hover{
+	color: #000 !important;
+    background-color: #ddd !important;
+}
+		
+@media only screen and (min-width: 762px) { 
+  #button_default { 
+    display: none; 
+	
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+	<!-- Título da Página -->
+	<title>Stractus</title><!--Descrição da página-->
+	<meta content="Aqui você processa dados estatisticos de forma fácil e simples!" name="description"><!--Página em Português-->
+	<meta charset="utf-8"><!--Ícone da página-->
+	<link rel="icon" src="../_imagens/favicon.png">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<!--Bibliotecas Bootstrap, AJAX, JQUERY -->
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="../_css/style_execucao.css">
+	<link rel="stylesheet" href="../_css/bootstrap.min.css">
+	<!--JS-->
+	<script src="../_js/jquery.min.js"></script>
+	<script src="../_js/jquery.js"></script>
+	<script src="../_js/bootstrap.min.js"></script>
+	<script src="../_js/Chart.bundle.js"></script>
+	<script src="../_js/highcharts.js"></script>
+	<script src="../_js/scrolling.js" type="text/javascript"></script>
+	<script src="../_js/execucao.js" type="text/javascript"></script>
+	
+	<link href="../_css/responsivetabs.css" rel="stylesheet">
+<script src="../_js/responsivetabs.js"></script>
+	
+
+    
+</head>
+
+<body data-offset="60" data-spy="scroll" data-target=".navbar" id="myPage">
+    <!--Barra de navegação fixada-->
+    <nav class="navbar navbar-default navbar-fixed-top" id="myNavbar2">
+        <div class="container">
+            <div class="navbar-header">
+                <!--Botão de menu default-->
+                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> 
+                <!--Nome da Empresa-->
+                <a class="navbar-brand" href="#myPage" id="logo-name">Stractus</a>
+				</div>
+				<!--Títulos da barra de navegação-->
+				<div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">PÁGINA INICIAL</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+	<!--Jumbotron -->
+    <div class="jumbotron text-center" style="height:320px">
+        <!--Texto de boas vindas-->
+        <div class="row">
+            <div class="col s12">
+                <h1>Vamos Começar!</h1>
+                <p><br></p>
+                <!--Abas da 1° Etapa
+                <!-- Centered Tabs -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#aba_populacao">População</a></li>
+                    <li><a data-toggle="tab" href="#aba_amostra">Amostra</a></li>
+                    <li><a data-toggle="tab" href="#aba_dist">Distribuições</a></li>
+                    <li><a data-toggle="tab" href="#aba_corre">Correlação</a></li>
+                    <li><a data-toggle="tab" href="#aba_intervalo">Intervalo de Confiança</a></li>
+                </ul>
+				
+            </div>
+		</div>
+	</div>
+	
+<!--Espaço dentro das abas-->
+ <div class="tab-content">
+  <!--Aba População-->
+  <div class="tab-pane fade in active" id="aba_populacao">
+    <!-- Container (Variável) -->
+    <div id="var_disc" >
+      <h2>Escolha a Variável</h2>
+      <br>
+      <div class="row slideanim">
+        <div class="col-sm-12">
+          <a href="#disc" class="navbar-toggle" data-toggle="collapse" style="width: 100%" id="buttonExtra">Variável Quantitativa Discreta</a>
+          <div align="center" id="disc" class="collapse">
+            <h2>Discreta</h2>
+            <strong>Insira os dados (xi):</strong><input type="text" name="n_xidisc" id="xi_discreta"><br><br>
+            <strong>Insira os dados (fi):</strong><input type="text" name="n_fidisc" id="fi_discreta"><br>
+            <!--botão para fazer o cálculo-->
+            </br><button onclick="c_disc()" id="buttonExtra"> Mostrar Tabela </button>
+            <br>
+            <br>
+            <div align="center" id="tabela_disc"> </div>
+            <!-- Container (Demais Valores) -->
+            <div id="outros" >
+              <h2>Média, moda e mediana</h2>
+              <br>
+              <div class="row slideanim">
+                <div class="col-sm-4"> </div>
+                <div class="col-sm-4">
+                  <div id="conteudo">
+                    <strong>Média:</strong><b type="text" name="n_media" id="media_disc" style="color:#008993"> </b></br></br>
+                    <strong>Moda:</strong><b type="text" name="n_moda" id="moda_disc" style="color:#008993"> </b></br></br>
+                    <strong>Mediana:</strong><b type="text" name="n_mediana" id="mediana_disc" style="color:#008993"> </b></br></br>
+					<strong>Variância:</strong><b type="text" name="n_variancia" id="variancia_disc" style="color:#008993"> </b></br></br>
+					<strong>Desvio Padrão:</strong><b type="text" name="n_desvio" id="desvpad_disc" style="color:#008993"> </b></br></br>
+					<strong>Coeficiente de Variação:</strong><b type="text" name="n_coeficiente" id="coef_disc" style="color:#008993"> </b></br></br>
+					</br>
+                    </br>
+                  </div>
+                  </br>
+                </div>
+                <div class="col-sm-4"> </div>
+              </div>
+            </div>
+            <!-- Container (Demais Valores) -->
+            <div id="graph" >
+              <h2>Gráfico</h2>
+              <br>
+              <div class="row slideanim">
+                <div class="col-sm-4"> </div>
+                <div class="col-sm-4">
+                  <canvas id="graphic_disc"></canvas>
+                </div>
+                <div class="col-sm-4"> </div>
+              </div>
+            </div>
+          </div>
+          <!--Fim Discreta-->
+          </br>
+		  <!--Inicio Continua-->
+          <a href="#cont" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Variável Quantitativa Contínua</a> 
+          <div align="center" id="cont" class="collapse">
+            <h2>Contínua</h2>
+            <strong>Insira os dados (xi):</strong><input type="text" name="n_xicont" id="xi_continua"><br><br>
+            <!--botão para fazer o cálculo-->
+            </br><button onclick="c_cont()" id="buttonExtra"> Mostrar Tabela </button>
+            <br>
+            <br>
+            <div class="row slideanim">
+              <div class="col-sm-4"> </div>
+              <div class="col-sm-4">
+                <div id="tabela_cont"> </div>
+                <div id="outros" >
+                  <h2>Média, moda e mediana</h2>
+                  <br>
+                  <div class="row slideanim">
+                    <div class="col-sm-4"> </div>
+                    <div class="col-sm-4">
+                      <div id="conteudo_cont">
+                        <strong>Média:</strong><b type="text" name="n_media" id="media_cont"  style="color:#008993"> </b></br></br>
+						<strong>Mediana:</strong><b type="text" name="n_mediana" id="mediana_cont" style="color:#008993"> </b></br></br>
+                        <strong>Moda Convencional:</strong><b type="text" name="n_moda" id="modaconv_cont" style="color:#008993"> </b></br></br>
+						<strong>Moda Pearson:</strong><b type="text" name="n_moda" id="modapear_cont" style="color:#008993"> </b></br></br>
+                        <strong>Moda King:</strong><b type="text" name="n_moda" id="modaking_cont" style="color:#008993"> </b></br></br>
+						<strong>Moda Czuber:</strong><b type="text" name="n_moda" id="modaczub_cont" style="color:#008993"> </b></br></br>
+						<strong>Variância:</strong><b type="text" name="n_variancia" id="variancia_cont" style="color:#008993"> </b></br></br>
+						<strong>Desvio Padrão:</strong><b type="text" name="n_desvio" id="desvpad_cont" style="color:#008993"> </b></br></br>
+						<strong>Coeficiente de Variação:</strong><b type="text" name="n_coeficiente" id="coef_cont" style="color:#008993"> </b></br></br>
+                        </br>
+                        </br>
+                      </div>
+                      </br>
+                    </div>
+                    <div class="col-sm-4"> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4"> </div>
+            </div>
+			<!-- Container (Demais Valores) -->
+            <div id="graph" >
+              <h2>Gráfico</h2>
+              <br>
+              <div class="row slideanim">
+                <div class="col-sm-4"> </div>
+                <div class="col-sm-4">
+                  <canvas id="graphic_cont"></canvas>
+                </div>
+                <div class="col-sm-4"> </div>
+              </div>
+            </div>
+          </div>
+		  <!--Fim Contínua-->
+		  </br>
+		</div>
+      </div>
+    </div>
+  </div>
+  <!--Aba Amostra-->
+  <div class="tab-pane fade" id="aba_amostra">
+  <h2>ESCOLHA UMA AMOSTRA</h2>
+	<div align="center" class="row">
+		<strong>Erro:</strong><input type="text" name="v_erro" id="v_erro">%
+		</br>
+		</br>
+		<strong>População:</strong><input type="text" name="v_pop" id="v_pop">
+		
+		<!--botão para fazer o cálculo-->
+		</br><button onclick="c_amostra()" id="buttonExtra"> Calcular Amostragem </button>
+        <!--onde sai o resultado-->
+		<br>
+		<div id="conteudo">
+            <strong>Amostra:</strong><b type="text" name="n_amostrasimples" id="v_amostra_f" style="color:#008993"> </b></br></br>     
+			</br>
+            </br>
+			
+        </div> 
+	  </div>
+	<!--Inicio Aleatória-->
+    <a href="#amostra_aleatoria" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Amostra Aleatória</a> 
+    <div align="center" id="amostra_aleatoria" class="collapse">
+    
+      <div class="row">
+        <br>
+      </div>
+      <h2>Amostra Aleatória</h2>
+      <br>
+		<strong>Insira os dados (xi):</strong><input type="text" name="n_xiamostraSimp" id="xi_AmostraSimp"><br><br>
+		<!--botão para fazer o cálculo-->
+        </br><button onclick="c_amostra_aleatoria()" id="buttonExtra"> Sortear </button>
+		<br>
+		<br>
+		<strong>Sorteados para exclusão:</strong><b type="text" name="n_resultsorteio" id="v_amostra_sorteada" style="color:#008993"> </b></br></br>
+		
+		
+		
+    </div>
+  <!-- Fim Aleatória-->
+  
+  <!--Inicio Estratificada-->
+    <a href="#amostra_proporcional" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Amostra Estratificada Proporcional</a> 
+    <div align="center" id="amostra_proporcional" class="collapse">
+    
+      <div class="row">
+        <br>
+      </div>
+      <h2>Amostra Estratificada Proporcional</h2>
+      <br>
+	  <strong>Insira os grupos:</strong><input type="text" name="n_gruposAmostEst" id="grupos_AmostraEstra"><br><br>
+		<!--botão para fazer o cálculo-->
+        </br><button onclick="c_amostra_estratificada()" id="buttonExtra"> Calcular </button>
+		<br>
+		<br>
+	  <strong>Proporção:</strong><b type="text" name="n_resultproporcao" id="v_proporcao" style="color:#008993"> </b></br></br>
+	  <strong>Tamanho dos Estratos:</strong><b type="text" name="n_resultgrupos" id="v_estratos" style="color:#008993"> </b></br></br>
+      
+  </div><!-- Fim Estratificada-->
+  
+  <!--Inicio Sistemática-->
+    <a href="#amostra_sistematica" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Amostra Sistematica</a> 
+    <div align="center" id="amostra_sistematica" class="collapse">
+    
+      <div class="row">
+        <br>
+      </div>
+      <h2>Amostra Sistematica</h2>
+      <br>
+	  
+		<!--botão para fazer o cálculo-->
+        </br><button onclick="c_amostra_sistematica()" id="buttonExtra"> Calcular </button>
+		<br>
+		<br>
+	  <strong>Sistema:</strong><b type="text" name="n_resultsistema" id="v_sistema" style="color:#008993"> </b></br></br>
+	  
+ 
+  </div><!-- Fim Sistematica-->
+    
+	</div>
+  
+  <!--Aba Distribuições-->
+  <div class="tab-pane fade" id="aba_dist">
+  <!-- Container (Distribuições) -->
+    <div id="distri" >
+      <h2>Escolha a Distribuição</h2>
+      <br>
+      <div class="row slideanim">
+        <div class="col-sm-12">
+    <!--Inicio Binomial-->
+    <a href="#distribuicao_binomial" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Distribuição Binomial</a> 
+    <div align="center" id="distribuicao_binomial" class="collapse">
+    
+      <div class="row">
+        <br>
+      </div>
+      <h3 align="center">Distribuição Binomial</h3>
+      <br>
+      <div align="center" class="row">
+        
+		<label>Tamanho da Amostra(n): </label><input type="text" name="n" id="db_n" > <br>
+		<select id="cboOpcoes" onchange="ChamarLink();">
+			<option value="0" style="color:#ccc">Escolha um evento (k)</option>
+			<option value="1">Extamente</option>
+			<option value="2">No mínimo</option>
+			<option value="3">No máximo</option>
+			<option value="4">entre ... e ...</option>
+			<option value="5">de ... a ...</option>
+			<option value="6">de ... até ...</option>		
+		</select><br>
+		<script>
+		var valor_k_global = 0;
+			function ChamarLink() {
+				var opcao = document.getElementById("cboOpcoes").value;
+				
+				if (opcao == 1){
+					document.getElementById("db_k").innerHTML = "Exatamente <input type='text' name='exatamente' id='db_exatamente' >";
+					
+				} else if (opcao == 2){
+					document.getElementById("db_k").innerHTML = "No Mínimo <input type='text' name='minimo' id='db_minimo' >";
+				} else if (opcao == 3){
+					document.getElementById("db_k").innerHTML = "No Máximo <input type='text' name='maximo' id='db_maximo' >";
+				} else if (opcao == 4){
+					document.getElementById("db_k").innerHTML = "Entre <input type='text' name='entre' id='db_entre' > E <input type='text' name='and' id='db_and' > ";
+				} else if (opcao == 5){
+					document.getElementById("db_k").innerHTML = "De <input type='text' name='de1' id='db_de1' > A <input type='text' name='to' id='db_to' > ";
+				} else if (opcao == 6){
+					document.getElementById("db_k").innerHTML = "De <input type='text' name='de2' id='db_de2' > Até <input type='text' name='ate' id='db_ate' > ";
+				} else if (opcao == 0){
+					document.getElementById("db_k").innerHTML = "";
+				}
+			}
+		</script>
+        <!--Eveto(k):--><b id="db_k"> </b><br><br>
+		<label>Sucesso(p): </label><input type="text" name="p" id="db_p" ><br>
+        <label>Fracasso(q): </label><input type="text" name="q" id="db_q" ><br>
+        
+	</div>
+        <br>
+		
+        <button id="buttonExtra" onclick="c_distribuicao_binomial()">Calcular</button>
+		<br></br></br>
+		<strong>Evento:</strong><b type="text" name="n_evento" id="evento" style="color:#008993"> </b></br>
+		<strong>Probabilidade:</strong><b type="text" name="n_probabilidade" id="probabilidade" style="color:#008993"> </b></br>		
+		<strong>Probabilidade Total:</strong><b type="text" name="n_probabilidade" id="probabilidade_total" style="color:#008993"> </b></br>	
+		<strong>Média:</strong><b type="text" name="n_media_db" id="media_db" style="color:#008993"> </b></br>
+		<strong>Variância:</strong><b type="text" name="n_variancia_db" id="variancia_db" style="color:#008993"> </b></br>
+		<strong>Desvio Padrão:</strong><b type="text" name="n_desvio_db" id="desvio_db" style="color:#008993"> </b></br>
+		<strong>Coeficiente de Variação:</strong><b type="text" name="n_coeficiente_db" id="coeficiente_db" style="color:#008993"> </b></br>
+        <br>
+        <br>
+        
+        
+
+    </div>
+  </div><!-- Fim Binomial-->
+  
+  <!--Inicio Normal-->
+    <a href="#distribuicao_normal" class="btn btn-info" data-toggle="collapse" style="width: 100%" id="buttonExtra">Distribuição Normal</a> 
+    <div align="center" id="distribuicao_normal" class="collapse">
+		<div class="row">
+        <br>
+      </div>
+      <h3 align="center">Distribuição Normal</h3>
+      <br>
+      <div align="center" class="row">
+        
+		
+		<select id="cboOpcoes_dn" onchange="dn_opcoes();">
+			<option value="0" style="color:#ccc">Escolha um evento</option>
+			<option value="1">Apenas valor de X</option><!--1 numero-->
+			<option value="2">Valor de X1 e X2(antes ou depois da média)</option><!--2 numeros(subtração, pq é depois ou antes da média) -->
+			<option value="3">Valor de X1 e X2(Valor entre X1, média e X2)</option><!--2 numeros(soma, pq é entre X1, média e X2) -->
+		</select><br>
+		<script>
+			function dn_opcoes() {
+				var opcao = document.getElementById("cboOpcoes_dn").value;
+				
+				if (opcao == 1){
+					document.getElementById("dn_evento").innerHTML = "X <input type='text' name='x_dn' id='dn_x' >";
+				} else if (opcao == 2){
+					document.getElementById("dn_evento").innerHTML = "X1 <input type='text' name='x_dn_sub1' id='dn_x_sub1' > X2 <input type='text' name='x_dn_sub2' id='dn_x_sub2' >";
+				} else if (opcao == 3){
+					document.getElementById("dn_evento").innerHTML = "X1 <input type='text' name='x_dn_sum1' id='dn_x_sum1' > X2 <input type='text' name='x_dn_sum2' id='dn_x_sum2' >";
+				} else if (opcao == 0){
+					document.getElementById("dn_evento").innerHTML = "";
+				}
+			}
+		</script>
+        <!--Evento--><b id="dn_evento"> </b><br><br>
+		<label>Média: </label><input type="text" name="n_media_dn" id="dn_media" ><br><br>
+        <label>Desvio Padrão: </label><input type="text" name="n_desvio_dn" id="dn_desvio" ><br>
+        
+	</div>
+	
+        <button id="buttonExtra" onclick="c_distribuicao_normal()">Calcular Z</button>
+		<br>
+		<strong>Z:</strong><br><b type="text" name="dn_z1" id="z1_dn" style="color:#008993"></b><br><b type="text" name="dn_z2" id="z2_dn" style="color:#008993"> </b></br><br>
+		<a href="..\_documentos\tabela_normal.pdf" target="_blank"><button id="buttonExtra" class="btn btn-default btn-lg">Tabela Normal</button></a><br><br>
+		
+		<select id="cboOpcoes_z" onchange="z_opcoes();">
+			<option value="0" style="color:#ccc">Quantos z's?</option>
+			<option value="1">Z</option><!--1 numero-->
+			<option value="2">Z1 e Z2</option><!--2 numeros-->
+		</select><br>
+		<script>
+			function z_opcoes() {
+				var opcao = document.getElementById("cboOpcoes_z").value;
+				
+				if (opcao == 1){
+					document.getElementById("evento_z").innerHTML = "<strong>Z transformado:</strong><b><input type='text' name='dn_z_trans' id='dn_z_t'> </b></br><br>";
+				} else if (opcao == 2){
+					document.getElementById("evento_z").innerHTML = "<strong>Z1 transformado:</strong><b><input type='text' name='dn_z1_trans' id='dn_z1_t'> </b></br> <strong>Z2 transformado:</strong><b><input type='text' name='dn_z2_trans' id='dn_z2_t'> </b></br><br>";
+				} else if (opcao == 0){
+					document.getElementById("evento_z").innerHTML = "";
+				}
+			}
+		</script>
+		<!--Evento--><b id="evento_z"> </b><br><br>
+		<button id="buttonExtra" onclick="c_probabilidade_normal()">Calcular Probabilidade</button><br>
+		<strong>Probabilidade:</strong><b type="text" name="probabilidade_dn" id="probabilidade_dn" style="color:#008993"> </b></br><br>
+		
+		
+        <br>
+        <br>
+	</div><!-- Fim Normal-->
+  </div>
+  </div>
+  </div>
+  
+  
+  <!--Aba Correlação-->
+  <div class="tab-pane fade" id="aba_corre">
+	
+      <div id="correlacao" >
+        <h2> Correlação </h2>
+        </br>
+
+        <div >
+          <div>
+            <div class="col-md-5">
+              <div class="col-md-4 col-md-offset-4">
+                
+                <div class="col-md-offset-6">
+                  
+                  <div  style="overflow:scroll; width:330px; height:400px;background-color:#FFF;"  color="#FFFFFF">
+                  <label ><font size="4">Variavel Independente (xi)</font></label>
+                  <input type="number" id="dados"> </label>
+                  <button style="background-color:#008993" type="button" class="btn btn-primary" onclick="Add(1)" accesskey="enter"> Adicionar </button>
+                  <button style="background-color:#008993" type="button" class="btn btn-primary" onclick="Add(3)"> Desfazer </button>
+                  </br>
+                  <table class="table table-striped" bgcolor=" #FFFFFF"> 
+                    <tr>
+                      <td> <strong>Adicionados</strong> </td><td><strong>total</strong></td>
+                    </tr>
+                    <tr>
+                      <td id="addcor"> </td> <td class="info" id="totalcor"></td>
+                    </tr>
+                  </table>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-5 ">
+              <div class="col-md-5 " >
+                
+                <div class="col-md-offset-7">
+                  <div  style="overflow:scroll; width:330px; height:400px;background-color:#FFF;"  color="#FFFFFF">
+                  <label ><font size="4">Variavel Dependente (yi)</font></label>
+                  <input type="number" id="dados2"> </label>
+                  <button style="background-color:#008993" type="button" class="btn btn-primary" onclick="Add(2)" accesskey="enter"> Adicionar </button>
+                  <button style="background-color:#008993" type="button" class="btn btn-primary" onclick="Add(4)"> Desfazer </button>
+                  <table class="table table-striped" bgcolor=" #FFFFFF"> 
+                    <tr>      
+                      <td> <strong>Adicionados</strong> </td><td><strong>total</strong></td>
+                    </tr>
+                    <tr>
+                      <td id="addcor2"> </td> <td class="info" id="totalcor2"></td>
+                    </tr>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div align="center" id="tipoproba">
+              <div class="row">
+                <div class="col-md-12">
+                  </br>
+                  </br>
+                  <button id="buttonExtra" type="button" class="btn btn-primary" onclick="correlacao()" accesskey="enter"> Verificar Correlação </button>
+                    
+                </div>
+              </div>
+          </div>
+          <div align="center">
+            <div class="col-md-12">
+              </br>
+              <font size="6"><label>Y = </label><label id="equacao" style="color:#008993"> a.x + b</label></font>
+			  <br>
+			  <font size="3"><strong>Correlação:</strong><b type="text" name="n_resultcorrelacao" id="correlacao_result" style="color:#008993"> </b></br></font>
+			  <font size="3"><b type="text" name="n_resultcorrelacao" id="correlacao_texto" style="color:#008993"></font> </b></br></br>
+			  
+            </div>
+           
+            <div class="col-md-12">
+              <button id="buttonExtra" type="button" class="btn btn-primary" onclick="a()" accesskey="enter"> Grafico de Disperção </button>
+                
+            </div>
+            
+          </div>
+          </br>
+          <div align="center" id="container" style="min-width: 210px; height: 300px; margin: 0 auto" class="col-md-10"></div>
+          <canvas align="center"></canvas>
+      </div>  
+   </div>
+  <!--Aba Intervalo De Confiança-->
+  <div align="center" class="tab-pane fade" id="aba_intervalo">
+		<h2> Intervalo de Confiança </h2>
+		<br>
+		<label>Porcentagem(%): </label><input type="text" name="percic" id="perc_ic" ><br>
+		<button id="buttonExtra" onclick="c_calcular_z()">Calcular Z</button>
+		<br>
+		<strong>Z:</strong><br><b type="text" name="ic_z1" id="z1_ic" style="color:#008993"></b><br>
+		
+		<a href="..\_documentos\tabela_normal.pdf" target="_blank"><button id="buttonExtra" class="btn btn-default btn-lg">Tabela Normal</button></a>
+		
+		
+		<h3 align="center" style="color:#000"><strong> População</strong></h3> 
+			<h4 align="center" id="populacoes_ic">
+			<input type="radio" class="check_class" id="finita" name="radio_type" value="1" onchange="tipo_intervalo();"/>Finita
+			<input type="radio" class="check_class" id="infinita" name="radio_type" value="2" onchange="tipo_intervalo();"/>Infinita
+			</h4>
+		
+		<script>
+		//função que so deixa checar um botão
+		$(document).ready(function() {
+			$(document).on('change', ".check_class", function () {
+				$(".check_class").prop("checked", false);
+				$(this).prop("checked", true);
+			});
+		});
+		</script>
+		
+		<script>
+		var pop_global = 0;
+		function tipo_intervalo() {
+					
+			var pop_finita = document.getElementById("finita").checked;
+			var pop_value;
+			
+			if (pop_finita == true) {
+				pop_value = document.getElementById('finita').value;
+				document.getElementById('pop_ic').innerHTML = "<label>Tamanho da População(N): </label><input type='text' name='populacao_ic' id='populacao_ic' ><br>";
+				
+			}else if (pop_finita == false) {
+				pop_value = document.getElementById('infinita').value;
+				document.getElementById('pop_ic').innerHTML = "";
+				
+			}
+			
+			pop_global = pop_value;
+		}			
+		</script>
+		<label>Amostra(n): </label><input type="text" name="nic" id="n_ic" ><br>
+		<label>Desvio(dp): </label><input type="text" name="dpic" id="dp_ic" ><br>
+		<label>Média(x): </label><input type="text" name="mediaic" id="media_ic" ><br>
+		<strong>Z transformado:</strong><b><input type='text' name='ic_z_trans' id='ic_z_t'> </b></br><br>
+		
+		<b name="popic" id="pop_ic" ></b><br>
+		
+		<button id="buttonExtra" onclick="c_intervalo_confianca()">Calcular Intervalo</button><br>
+		
+		<strong>Erro Padrão:</strong><b type="text" name="n_erro_ic" id="erro_ic" style="color:#008993"> </b></br>
+		<strong>Intervalo de Confiança:</strong><b type="text" name="ic" id="ic" style="color:#008993"> </b></br>
+		
+		
+  </div>
+  </div>
+    
+
+	<!--Seta para voltar ao início da página-->
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="Voltar para o topo"><span class="glyphicon glyphicon-chevron-up"></span></a> <!--Rodapé-->
+        <p>© 2017 Stractus. Todos os direitos reservados.</p>
+        <p>Desenvolvido pelo Time Stractus</p>
+    </footer>
+</body>
+</html>
